@@ -32,7 +32,7 @@ const Home = () => {
 
     return (
         <>
-            <Meta title="Sybilscan | Explorer" />
+            <Meta title="Sybilscan | Transactions" />
             {isWeb3Enabled && isChainSupported ? (
                 <Div>
                     <Title>Latest Transactions</Title>
