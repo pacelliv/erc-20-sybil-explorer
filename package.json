@@ -1,5 +1,6 @@
 {
     "name": "sybil-token-explorer",
+    "description": "A transaction explorer for erc-20 sybil token",
     "version": "0.1.0",
     "private": true,
     "scripts": {
