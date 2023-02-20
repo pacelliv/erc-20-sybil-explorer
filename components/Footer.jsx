@@ -27,7 +27,7 @@ const Div = styled.div`
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
 
     width: 100%;
-    padding: 0.75em 2.2em 0.5em 1.5em;
+    padding: 0.75em 2.2em 0.4em 1.5em;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -67,7 +67,10 @@ const Footer = () => {
                 <img className="logo" src="../twitter.png" />
             </Link>
             <div className="link">
-                <a href="#" target="_blank">
+                <a
+                    href="https://github.com/pacelliv/erc20-sybil-token"
+                    target="_blank"
+                >
                     Fork on Github
                 </a>
                 <img
