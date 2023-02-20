@@ -117,7 +117,7 @@ class Navbar extends Component {
     render() {
         return (
             <Nav className="navbar-items">
-                <p className="navbar-logo">Sybil Explorer</p>
+                <p className="navbar-logo">Sybilscan</p>
                 <div className="menu-icon" onClick={this.handleClick}>
                     {this.state.clicked ? (
                         <FaTimes className="fa-times" />
