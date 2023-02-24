@@ -1,3 +1,4 @@
+import { BsExclamationCircleFill } from "react-icons/bs"
 import styled from "styled-components"
 
 const Div = styled.div`
@@ -12,12 +13,12 @@ const Div = styled.div`
     & p {
         display: flex;
         justify-content: center;
+        gap: 5px;
     }
 
     .warning-icon {
-        width: 15px;
-        height: 15px;
-        margin-right: 5px;
+        color: #f72585;
+        font-size: 1rem;
     }
 `
 
@@ -26,7 +27,7 @@ const Warning = () => {
         <Div>
             <p>
                 <span>
-                    <img className="warning-icon" src="../warning-icon.png" />
+                    <BsExclamationCircleFill className="warning-icon" />
                 </span>
                 Connect wallet to Ethereum Göerli (5) or Hardhat-Localhost
                 (31337) to request funds.
