@@ -4,8 +4,6 @@ import { FaGithub, FaTwitter } from "react-icons/fa"
 import { BsArrowUpRightSquareFill } from "react-icons/bs"
 
 const Div = styled.div`
-    position: absolute;
-    bottom: 0;
     background: hsla(217, 100%, 50%, 1);
 
     background: linear-gradient(
@@ -26,13 +24,13 @@ const Div = styled.div`
         hsla(186, 100%, 69%, 1) 100%
     );
 
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
-
     width: 100%;
     padding: 0.8em 2em 0.5em;
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    position: fixed;
+    bottom: 0;
 
     .logo {
         font-size: 20px;
