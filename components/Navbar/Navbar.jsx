@@ -1,5 +1,6 @@
 import { FaBars, FaTimes } from "react-icons/fa"
-import { Component } from "react"
+import { useState } from "react"
+import { useRouter } from "next/router"
 import Link from "next/link"
 import styled from "styled-components"
 import { MenuItems } from "./MenuItems"
@@ -29,6 +30,20 @@ const Nav = styled.nav`
         color: white;
         padding: 0.4em 0.6em;
         font-weight: 600;
+        position: relative;
+    }
+
+    .nav-active {
+        color: pink;
+    }
+
+    .nav-active::before {
+        content: "";
+        width: 25%;
+        height: 2px;
+        background-color: pink;
+        position: absolute;
+        bottom: 6px;
     }
 
     .nav-links:hover {
@@ -75,6 +90,10 @@ const Nav = styled.nav`
             font-size: 1.1rem;
         }
 
+        .nav-active::before {
+            background-color: transparent;
+        }
+
         .nav-links:nth-of-type(1) {
             margin-top: 1.5em;
         }
@@ -105,45 +124,40 @@ const Nav = styled.nav`
     }
 `
 
-class Navbar extends Component {
-    state = {
-        clicked: false,
+const Navbar = () => {
+    const [clicked, setClicked] = useState(false)
+    const router = useRouter()
+
+    const handleClick = () => {
+        setClicked(!clicked)
     }
 
-    handleClick = () => {
-        this.setState({ clicked: !this.state.clicked })
-    }
-
-    render() {
-        return (
-            <Nav className="navbar-items">
-                <p className="navbar-logo">Sybilscan</p>
-                <div className="menu-icon" onClick={this.handleClick}>
-                    {this.state.clicked ? (
-                        <FaTimes className="fa-times" />
-                    ) : (
-                        <FaBars className="fa-bars" />
-                    )}
-                </div>
-                <ul
-                    className={
-                        this.state.clicked ? "nav-menu active" : "nav-menu"
-                    }
-                >
-                    {MenuItems.map((item, index) => (
-                        <Link
-                            key={index}
-                            className={item.cName}
-                            href={item.url}
-                        >
-                            {item.title}
-                        </Link>
-                    ))}
-                </ul>
-                <ConnectButton />
-            </Nav>
-        )
-    }
+    return (
+        <Nav className="navbar-items">
+            <p className="navbar-logo">Sybilscan</p>
+            <div className="menu-icon" onClick={handleClick}>
+                {clicked ? (
+                    <FaTimes className="fa-times" />
+                ) : (
+                    <FaBars className="fa-bars" />
+                )}
+            </div>
+            <ul className={clicked ? "nav-menu active" : "nav-menu"}>
+                {MenuItems.map((item, index) => (
+                    <Link
+                        key={index}
+                        className={` ${
+                            router.pathname === item.url ? "nav-active" : null
+                        } ${item.cName}`}
+                        href={item.url}
+                    >
+                        {item.title}
+                    </Link>
+                ))}
+            </ul>
+            <ConnectButton />
+        </Nav>
+    )
 }
 
 export default Navbar
