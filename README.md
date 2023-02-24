@@ -4,7 +4,7 @@
 
 ### ⚡️⚡️ ipfs://Qmd4PwrMdpkqbqmmYbBA1pTEaeCC8Rw1VCoMVtuAEReEwL
 
-### ⚡️⚡️ Check the smart contracts [here](https://github.com/pacelliv/erc20-sybil-token).
+### ⚡️⚡️ Check the smart contracts [here](https://github.com/pacelliv/erc20-sybil-token)
 
 ## Overview
 
