@@ -132,7 +132,7 @@ const Box = ({
                 <input
                     className="input"
                     type="text"
-                    placeholder={!isWeb3Enabled && "No address detected"}
+                    placeholder="No address detected"
                     defaultValue={walletAddress}
                 />
                 <button
