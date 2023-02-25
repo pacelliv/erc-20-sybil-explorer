@@ -3,6 +3,7 @@ import { Context } from "../Context"
 import styled from "styled-components"
 import { useWeb3Contract } from "react-moralis"
 import Box from "components/Faucet/Box"
+import ToastNotification from "components/Faucet/ToastNotification"
 import Warning from "components/Faucet/Warning"
 import Meta from "components/Meta"
 import { faucetAbi, faucetAddresses } from "../../constants"
@@ -48,6 +49,7 @@ const Faucet = () => {
         isChainSupported,
     } = useContext(Context)
     const [isAllowed, setIsAllowed] = useState(false)
+    const [on, setOn] = useState(false)
     const [hash, setHash] = useState("")
 
     const faucetAddress =
@@ -72,6 +74,10 @@ const Faucet = () => {
         setIsAllowed(isAllowedFromContractCall)
     }
 
+    const closeNotification = () => {
+        setOn(false)
+    }
+
     useEffect(() => {
         canWithdraw()
     }, [isAllowed])
@@ -80,6 +86,7 @@ const Faucet = () => {
         try {
             const transactionReceipt = await tx.wait(1)
             setHash(transactionReceipt.transactionHash)
+            setOn(true)
         } catch (error) {
             console.error(error)
         }
@@ -88,6 +95,7 @@ const Faucet = () => {
     return (
         <Main>
             <Meta title="Sybilscan | Faucet" />
+            <ToastNotification on={on} closeNotification={closeNotification} />
             <Div>
                 <h1 className="title">Sybil Faucet</h1>
                 <p className="subtitle">Fast and reliable. 10 SYL/request.</p>
