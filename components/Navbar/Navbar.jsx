@@ -39,7 +39,7 @@ const Nav = styled.nav`
 
     .nav-active::before {
         content: "";
-        width: 25%;
+        width: 30%;
         height: 2px;
         background-color: pink;
         position: absolute;
